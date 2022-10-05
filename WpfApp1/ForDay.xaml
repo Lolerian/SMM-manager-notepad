@@ -1,0 +1,90 @@
+﻿<Window x:Class="WpfApp1.ForDay"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Planner for the day - template" Height="900" Width="1500"
+        WindowState="Maximized">
+
+    <Grid>
+        <!--Кнопка назад-->
+        <Button Name="Back" Content="Back" Height="30" Width="100"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"
+                Background="Black" Foreground="White">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--Кнопка сохранение шаблона-->
+        <Button Name="Save" Content="Save" Height="30" Width="100" Background="Black"
+                Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0,10,10,0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="15"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--Верхняя шапка - название шаблона-->
+        <Label Content="Planner for the day" HorizontalAlignment="Center" VerticalAlignment="Top"
+               Margin="0,10,0,0" FontSize="18"/>
+
+        <!--Разграничительная линия-->
+        <Line X1="10" Y1="50" X2="1550" Y2="50" StrokeThickness="4" Stroke="Black" StrokeEndLineCap="Square"/>
+
+        <!--Обозначение для поля ввода даты-->
+        <Label Content="Data:" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,730"/>
+
+        <!--Понедельник + текстовое поле-->
+        <Label Content="Mon" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,650"/>
+        <TextBox Name="Monday" MaxLength="550" TextWrapping="Wrap" Height="50"
+                 Width="1350" Margin="100,0,0,620" HorizontalAlignment="Left">
+        </TextBox>
+
+        <!--Вторник + текстовое поле-->
+        <Label Content="Tue" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,500"/>
+        <TextBox Name="Tuesday" MaxLength="550" TextWrapping="Wrap" Height="50"
+                 Width="1350" Margin="100,0,0,470" HorizontalAlignment="Left"/>
+
+        <!--Среда + текстовое поле-->
+        <Label Content="Wed" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,350"/>
+        <TextBox Name="Wednsday" MaxLength="550" TextWrapping="Wrap" Height="50"
+                 Width="1350" Margin="100,0,0,320" HorizontalAlignment="Left"/>
+
+        <!--Четверг + текстовое поле-->
+        <Label Content="Thu" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,200"/>
+        <TextBox Name="Thursday" MaxLength="550" TextWrapping="Wrap" Height="50"
+                 Width="1350" Margin="100,0,0,170" HorizontalAlignment="Left"/>
+
+        <!--Пятница + текстовое поле-->
+        <Label Content="Fri" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,50"/>
+        <TextBox Name="Friday" MaxLength="550" TextWrapping="Wrap" Height="50"
+                 Width="1350" Margin="100,0,0,20" HorizontalAlignment="Left"/>
+
+        <!--Суббота + текстовое поле-->
+        <Label Content="Set" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,-100"/>
+        <TextBox Name="Saturday" MaxLength="550" TextWrapping="Wrap" Height="50"
+                 Width="1350" Margin="100,0,0,-130" HorizontalAlignment="Left"/>
+
+        <!--Восресенье + текстовое поле-->
+        <Label Content="Sun" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Center"
+               Margin="20,0,0,-250"/>
+        <TextBox Name="Sunday" MaxLength="550" TextWrapping="Wrap" Height="50"
+                 Width="1350" Margin="100,0,0,-280" HorizontalAlignment="Left"/>
+        
+        
+    </Grid>
+</Window>

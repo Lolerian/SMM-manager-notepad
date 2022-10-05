@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfApp1.CreateCharapter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Create chapter" Height="150" Width="400"
+        ResizeMode="NoResize"
+        Icon="image\note.ico"
+        Background="Gray">
+    <Grid>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Left" Margin="44,4,0,0" FontFamily="Leelawadee UI" FontWeight="Normal" FontStyle="Normal" FontSize="14" Background="#00000000" Foreground="#FF332F2F">Enter the name of the note</Label>
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="300" Name="NameOfChapter"></TextBox>
+        <Button x:Name="CreateChapterButton" Height="25" Width="100" Click="CreateChapterButton_Click" IsDefault="False"
+                Background="WhiteSmoke" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Create" Margin="280,0,0,10">
+        </Button>
+    </Grid>
+</Window>
