@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Planner for the day - template" Height="900" Width="1500"
         WindowState="Maximized"
-        Icon="image/iconka.ico">
+>
 
     <Grid>
 
