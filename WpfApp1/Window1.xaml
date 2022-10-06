@@ -13,8 +13,29 @@
 
         <!--Задний фон-->
         <Grid.Background>
-            <SolidColorBrush Color="Gray" Opacity="0.5"/>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop x:Name="Grad1" Color="Black" Offset="0.0"/>
+                <GradientStop x:Name="Grad2" Color="Black" Offset="1.1"/>
+            </LinearGradientBrush>
         </Grid.Background>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation Storyboard.TargetName="Grad1"
+                                        Storyboard.TargetProperty="Color"
+                                        To="#7CC7BE"
+                                        Duration="0:0:2"
+                                        AutoReverse="False"/>
+                        <ColorAnimation Storyboard.TargetName="Grad2"
+                                        Storyboard.TargetProperty="Color"
+                                        To="#C79A97"
+                                        Duration="0:0:2"
+                                        AutoReverse="False"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
 
         <!--Создание стиля для верхней панели-->
         <Grid.Resources>
@@ -36,12 +57,13 @@
         </Grid.RowDefinitions>
 
         <!--Cоздание контейнера-->
-        <Rectangle Opacity="0.4" Fill="Black" Width="300" HorizontalAlignment="Left" Margin="0,34,0,-5" Grid.RowSpan="2"/>
+        <Rectangle Opacity="0.3" Fill="Black" Width="300" HorizontalAlignment="Left" Margin="0,34,0,-5" Grid.RowSpan="2"
+                   RadiusX="2" RadiusY="2"/>
 
         <!--Кнопка для создания заметки-->
         <Button x:Name="CreateNote" Height="50" Width="280" Click="CreateNote_Click"
                 Background="WhiteSmoke" Content="Create a note" Grid.Row="1" HorizontalAlignment="Left"
-                Margin="0,700,0,0">
+                Margin="0,700,0,0" FontFamily="Arial Narrow">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>
@@ -52,7 +74,7 @@
         <!--Кнопка для создания раздела-->
         <Button x:Name="CreateChapter" Height="50" Width="280" Click="CreateChapter_Click"
                 Background="WhiteSmoke" Content="Create chapter" Grid.Row="1" HorizontalAlignment="Left"
-                Margin="0,580,0,0">
+                Margin="0,580,0,0" FontFamily="Arial Narrow">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>
@@ -67,13 +89,14 @@
             <ToolBar Name="mainToolBar" Height="30" DockPanel.Dock="Top">
 
                 <!--Создание элемента -->
-                <Button Style="{StaticResource formatImageStyle}" ToolTip="Edit note" Content="Edit note" Click="EditNote_Click"></Button>
+                <Button Style="{StaticResource formatImageStyle}" ToolTip="Edit note" Content="Edit note" Click="EditNote_Click" FontFamily="Arial Narrow" Width="70"></Button>
             </ToolBar>
         </DockPanel>
 
+        <!--Создание кнопки для перехода к шаблонам-->
         <Button x:Name="TemplatesForPlans" Height="50" Width="280" Click="TemplatesForPlans_Click"
             Background="WhiteSmoke" Content="Templates for plans" Grid.Row="1" HorizontalAlignment="Left"
-                Margin="0, 460,0,0">
+                Margin="0, 460,0,0" FontFamily="Arial Narrow">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>

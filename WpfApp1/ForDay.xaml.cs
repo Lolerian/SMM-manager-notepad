@@ -23,5 +23,10 @@ namespace WpfApp1
         {
             InitializeComponent();
         }
+
+        private void Monday_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -8,12 +8,27 @@
         Title="Create chapter" Height="150" Width="400"
         ResizeMode="NoResize"
         Icon="image\note.ico"
-        Background="Gray">
+        Background="WhiteSmoke">
     <Grid>
-        <Label VerticalAlignment="Top" HorizontalAlignment="Left" Margin="44,4,0,0" FontFamily="Leelawadee UI" FontWeight="Normal" FontStyle="Normal" FontSize="14" Background="#00000000" Foreground="#FF332F2F">Enter the name of the note</Label>
-        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="300" Name="NameOfChapter"></TextBox>
+        
+        <!--Тектовая информационная надпись-->
+        <Label VerticalAlignment="Top" HorizontalAlignment="Left" Margin="44,4,0,0" FontFamily="Arial Narrow" FontWeight="Normal" 
+               FontStyle="Normal" FontSize="14" Background="#00000000" Foreground="#FF332F2F">Enter the name of the note</Label>
+
+        <!--Поле для ввода текста-->
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="300" Name="NameOfChapter"
+                 MaxLength="50" FontFamily="Arial Narrow"></TextBox>
+
+        <!--Кнопка для сохранение написанного содержимого-->
         <Button x:Name="CreateChapterButton" Height="25" Width="100" Click="CreateChapterButton_Click" IsDefault="False"
-                Background="WhiteSmoke" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Create" Margin="280,0,0,10">
+                Background="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Content="Create" Margin="280,0,0,10"
+                Foreground="WhiteSmoke" FontFamily="Arial Narrow">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
         </Button>
+        
     </Grid>
 </Window>

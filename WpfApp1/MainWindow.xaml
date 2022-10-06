@@ -7,23 +7,27 @@
         mc:Ignorable="d"
         Title="SMMnotepad"
         WindowState="Maximized"
-        Icon="image\iconka.ico">
+        Icon="image\iconka.ico"
+        Height="900" Width="1500">
 
     <Grid>
         <!--Задний фон-->
         <Grid.Background>
-            <ImageBrush ImageSource="image\BackGr.jpg"></ImageBrush>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#C79A97" Offset="0.0"/>
+                <GradientStop Color="#7CC7BE" Offset="1.1"/>
+            </LinearGradientBrush>
         </Grid.Background>
 
         <!--Cоздание контейнера-->
-        <Rectangle Opacity="0.4" Fill="Black" Width="400" Height="300" RadiusX="15" RadiusY="15"/>
+        <Rectangle Opacity="0.3" Fill="Black" Width="400" Height="300" RadiusX="15" RadiusY="15"/>
 
         <!--Приветственная надпись-->
-        <TextBlock HorizontalAlignment="Center" Margin="0,300,0,0"><Run FontSize="70" Foreground="Black" FontFamily="Brush Script MT" Text="Welcome"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,300,0,0"><Run FontSize="70" Foreground="WhiteSmoke" FontFamily="Brush Script MT" Text="Welcome"/></TextBlock>
 
         <!--Начальная кнопка-->
         <Button x:Name="ToBegin" Height="50" Width="150" Click="ToBegin_Click" IsDefault="False"
-                Background="Gray" HorizontalAlignment="Center" VerticalAlignment="Center" Content="To Begin">
+                Background="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Center" Content="To Begin">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>
@@ -34,7 +38,7 @@
         <!--Cправочная кнопка + настройка стиля-->
         <Button x:Name="Reference" Content="Referrence"
                 Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Margin="0,150,0,0" Background="Gray" Click="Reference_Click" IsDefault="False">
+                Margin="0,150,0,0" Background="WhiteSmoke" Click="Reference_Click" IsDefault="False">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>
@@ -42,5 +46,58 @@
             </Button.Resources>
         </Button>
 
+        <!--Создание анимации исчезнования обьекта-->
+        <StackPanel Height="900" Width="1500">
+            <Ellipse x:Name="MyE" Width="6" Height="6" Fill="WhiteSmoke"
+                     HorizontalAlignment="Left" Margin="850,357,0,0">
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="MyE"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="7.0" To="0.0" Duration="0:0:2" 
+                                    AutoReverse="True" RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+            </Ellipse>
+            <Ellipse x:Name="MyEy" Width="6" Height="6" Fill="WhiteSmoke"
+                     HorizontalAlignment="Left" Margin="860,-6,0,0">
+                    <Ellipse.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation
+                                    Storyboard.TargetName="MyEy"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0" To="0.7" Duration="0:0:2" 
+                                    AutoReverse="True" RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Ellipse.Triggers>
+                </Ellipse>
+            <Ellipse x:Name="MyEl" Width="6" Height="6" Fill="WhiteSmoke"
+                     HorizontalAlignment="Left" Margin="870,-6,0,0">
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Storyboard.TargetName="MyEl"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.7" To="0.0" Duration="0:0:2" 
+                                    AutoReverse="True" RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+            </Ellipse>
+        </StackPanel>
+        
+        
     </Grid>
 </Window>
