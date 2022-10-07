@@ -5,12 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Planner for the day - template" Height="900" Width="1500"
-        WindowState="Maximized"
->
+        Title="Planner for the day - template" Height="1000" Width="1500"
+        WindowState="Maximized">
 
     <Grid>
-
+        
         <!--Контейнер под название шаблона-->
         <Rectangle HorizontalAlignment="Center" VerticalAlignment="Top"
                    Height="40" Width="180" Opacity="0.3" RadiusX="0,15" RadiusY="0,15"
@@ -63,66 +62,162 @@
         <!--Разграничительная линия-->
         <Line X1="10" Y1="50" X2="1550" Y2="50" StrokeThickness="4" Stroke="Black" StrokeEndLineCap="Square"/>
 
-        <!--Обозначение для поля ввода даты-->
-        <Label Content="Data:" HorizontalAlignment="Left" VerticalAlignment="Top"
+        <!--Обозначение для поля ввода даты + поле-->
+        <Label Content="Date:" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="100,60,0,0" FontFamily="Arial Narrow" FontSize="20"/>
+        <TextBox Height="20" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Margin="150,67,0,0" MaxLength="8">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
 
         <!--Понедельник + текстовое поле-->
         <Label Content="Mon" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="30,109,0,0" FontFamily="Arial Narrow"/>
         <TextBox Name="Monday" MaxLength="550" TextWrapping="Wrap" Height="50" Margin="100,114,0,0"
-                 Width="1350" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Narrow" TextChanged="Monday_TextChanged">
+                 Width="800" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Narrow" TextChanged="Monday_TextChanged">
             Enter your text here
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
         </TextBox>
 
         <!--Вторник + текстовое поле-->
         <Label Content="Tue" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="35,177,0,0" FontFamily="Arial Narrow"/>
         <TextBox Name="Tuesday" MaxLength="550" TextWrapping="Wrap" Height="50" VerticalAlignment="Top"
-                 Width="1350" Margin="100,182,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="100,182,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
             Enter your text here
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
         </TextBox>
 
         <!--Среда + текстовое поле-->
         <Label Content="Wed" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="30,249,0,0" FontFamily="Arial Narrow"/>
         <TextBox Name="Wednsday" MaxLength="550" TextWrapping="Wrap" Height="50" VerticalAlignment="Top"
-                 Width="1350" Margin="100,254,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="100,254,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
             Enter your text here
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
         </TextBox>
 
         <!--Четверг + текстовое поле-->
         <Label Content="Thu" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="34,327,0,0" FontFamily="Arial Narrow"/>
         <TextBox Name="Thursday" MaxLength="550" TextWrapping="Wrap" Height="50" VerticalAlignment="Top"
-                 Width="1350" Margin="100,332,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="100,332,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
             Enter your text here
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
         </TextBox>
 
         <!--Пятница + текстовое поле-->
         <Label Content="Fri" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="35,402,0,0" FontFamily="Arial Narrow"/>
         <TextBox Name="Friday" MaxLength="550" TextWrapping="Wrap" Height="50" VerticalAlignment="Top"
-                 Width="1350" Margin="100,407,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="100,407,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
             Enter your text here
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
         </TextBox>
 
         <!--Суббота + текстовое поле-->
         <Label Content="Set" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="35,477,0,0" FontFamily="Arial Narrow"/>
         <TextBox Name="Saturday" MaxLength="550" TextWrapping="Wrap" Height="50" VerticalAlignment="Top"
-                 Width="1350" Margin="100,477,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="100,477,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
             Enter your text here
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
         </TextBox>
 
         <!--Восресенье + текстовое поле-->
         <Label Content="Sun" FontSize="28" HorizontalAlignment="Left" VerticalAlignment="Top"
                Margin="35,552,0,0" FontFamily="Arial Narrow"/>
         <TextBox Name="Sunday" MaxLength="550" TextWrapping="Wrap" Height="50" VerticalAlignment="Top"
-                 Width="1350" Margin="100,552,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="100,552,0,0" HorizontalAlignment="Left" FontFamily="Arial Narrow">
             Enter your text here
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
         </TextBox>
 
+        <!--Текстовое поле для ввода заметок/градиент-->
+        <RichTextBox Height="500" Width="500" HorizontalAlignment="Right" VerticalAlignment="Top"
+                     Margin="0,110,50,0" FontFamily="Arial Narrow">
+            <FlowDocument>
+                <Paragraph LineHeight="2"/>
+            </FlowDocument>
+            <RichTextBox.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="White" Offset="0.0"/>
+                    <GradientStop Color="WhiteSmoke" Offset="0.5"/>
+                    <GradientStop Color="WhiteSmoke" Offset="0.8"/>
+                    <GradientStop Color="#C79A97" Offset="1.1"/>
+                </LinearGradientBrush>
+            </RichTextBox.Background>
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+
+        <!--Имитация линеек тетради на поле заметок-->
+        <Line X1="988" Y1="125" X2="1487" Y2="125" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="140" X2="1487" Y2="140" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="155" X2="1487" Y2="155" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="171" X2="1487" Y2="171" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="187" X2="1487" Y2="187" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="202" X2="1487" Y2="202" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="219" X2="1487" Y2="219" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="234" X2="1487" Y2="234" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="252" X2="1487" Y2="252" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="266" X2="1487" Y2="266" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="281" X2="1487" Y2="281" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="298" X2="1487" Y2="298" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="315" X2="1487" Y2="315" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="330" X2="1487" Y2="330" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="345" X2="1487" Y2="345" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="360" X2="1487" Y2="360" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="376" X2="1487" Y2="376" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="392" X2="1487" Y2="392" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="408" X2="1487" Y2="408" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="424" X2="1487" Y2="424" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="440" X2="1487" Y2="440" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="455" X2="1487" Y2="455" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="471" X2="1487" Y2="471" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="487" X2="1487" Y2="487" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="503" X2="1487" Y2="503" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="519" X2="1487" Y2="519" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="535" X2="1487" Y2="535" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="551" X2="1487" Y2="551" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="567" X2="1487" Y2="567" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="583" X2="1487" Y2="583" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
+        <Line X1="988" Y1="599" X2="1487" Y2="599" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
 
 
     </Grid>
