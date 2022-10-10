@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -24,13 +25,22 @@ namespace WpfApp1
         public Window1()
         {
             InitializeComponent();
+
+            MenuItemss root = new MenuItemss() { Name = "Menu" };
+            MenuItemss childItem1 = new MenuItemss() { Name = "1" };
+            childItem1.Items.Add(new MenuItemss() { Name = "1.1" });
+            childItem1.Items.Add(new MenuItemss() { Name = "1.2" });
+            root.Items.Add(childItem1);
+            root.Items.Add(new MenuItemss() { Name = "2" });
+            //TreeViewss.Items.Add(root);
+
         }
 
         // создание раздела
         private void CreateChapter_Click(object sender, RoutedEventArgs e)
         {
-         CreateCharapter createCharapter = new CreateCharapter();
-         createCharapter.Show();
+            CreateCharapter createCharapter = new CreateCharapter();
+            createCharapter.Show();
         }
 
         // создание заметки
@@ -50,5 +60,17 @@ namespace WpfApp1
             Window2 window2 = new Window2();
             window2.Show();
         }
+
+        public class MenuItemss
+        {
+            public MenuItemss()
+            {
+                this.Items = new ObservableCollection<MenuItemss>();
+            }
+
+            public string Name { get; set; }
+            public ObservableCollection<MenuItemss> Items { get; set; }
+        }
     }
 }
+

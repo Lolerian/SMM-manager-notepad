@@ -10,7 +10,6 @@
         Icon="image\iconka.ico">
 
     <Grid>
-
         <!--Задний фон-->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -104,5 +103,13 @@
             </Button.Resources>
         </Button>
 
+         <!--<TreeView Name="TreeViewss" Height="570" Width="270" Background="WhiteSmoke" Margin="10,5,0,0"
+                  HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate DataType="{x:Type self:MenuItemss}" ItemsSource="{Binding Items}">
+                    <TextBlock Text="{Binding Name}" />
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>-->
     </Grid>
 </Window>
