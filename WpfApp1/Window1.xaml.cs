@@ -1,19 +1,7 @@
-﻿using DocumentFormat.OpenXml.Spreadsheet;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace WpfApp1
 {
@@ -22,32 +10,30 @@ namespace WpfApp1
     /// </summary>
     public partial class Window1 : Window
     {
+        //Добавление документа XML
+        private XDocument _theXML;
+        public XDocument TheXML
+        {
+            get => _theXML;
+            set => _theXML = value;
+        }
+
         public Window1()
         {
             InitializeComponent();
 
-            MenuItemss root = new MenuItemss() { Name = "Menu" };
-            MenuItemss childItem1 = new MenuItemss() { Name = "1" };
-            childItem1.Items.Add(new MenuItemss() { Name = "1.1" });
-            childItem1.Items.Add(new MenuItemss() { Name = "1.2" });
-            root.Items.Add(childItem1);
-            root.Items.Add(new MenuItemss() { Name = "2" });
-            //TreeViewss.Items.Add(root);
-
+            //Загрузка документа XML
+            DataContext = this;
+            TheXML = XDocument.Load("D:/уроки/WpfApp1/WpfApp1/Ps/XMLTree.xml");
+            TreeView.DataContext = TheXML;
+            TreeView.UpdateLayout();
         }
 
-        // создание раздела
-        private void CreateChapter_Click(object sender, RoutedEventArgs e)
+        private void TemplatesForPlans_Click(object sender, RoutedEventArgs e)
         {
-            CreateCharapter createCharapter = new CreateCharapter();
-            createCharapter.Show();
-        }
-
-        // создание заметки
-        private void CreateNote_Click(object sender, RoutedEventArgs e)
-        {
-            CreatingNote creatingNote = new CreatingNote();
-            creatingNote.Show();
+            //Создание окна
+            Window2 window2 = new Window2();
+            window2.Show();
         }
 
         private void EditNote_Click(object sender, RoutedEventArgs e)
@@ -55,22 +41,22 @@ namespace WpfApp1
 
         }
 
-        private void TemplatesForPlans_Click(object sender, RoutedEventArgs e)
+        private void CreateChapter_Click(object sender, RoutedEventArgs e)
         {
-            Window2 window2 = new Window2();
-            window2.Show();
+
         }
 
-        public class MenuItemss
+        private void CreateNote_Click(object sender, RoutedEventArgs e)
         {
-            public MenuItemss()
-            {
-                this.Items = new ObservableCollection<MenuItemss>();
-            }
+            CreatingNote creatingNote = new CreatingNote();
+            creatingNote.Show();
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
 
-            public string Name { get; set; }
-            public ObservableCollection<MenuItemss> Items { get; set; }
         }
     }
+
 }
+
 

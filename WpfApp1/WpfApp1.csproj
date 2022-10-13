@@ -60,9 +60,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CreateChapter.xaml.cs">
-      <DependentUpon>CreateChapter.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CreatingNote.xaml.cs">
       <DependentUpon>CreatingNote.xaml</DependentUpon>
     </Compile>
@@ -75,10 +72,6 @@
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>
-    <Page Include="CreateChapter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="CreatingNote.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,6 +183,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\iconka.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ps\XMLTree.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
