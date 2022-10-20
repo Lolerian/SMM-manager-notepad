@@ -1,7 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Threading.Tasks;
+using System.Text;
 
 namespace WpfApp1
 {
@@ -10,23 +13,15 @@ namespace WpfApp1
     /// </summary>
     public partial class Window1 : Window
     {
-        //Добавление документа XML
-        private XDocument _theXML;
-        public XDocument TheXML
-        {
-            get => _theXML;
-            set => _theXML = value;
-        }
+        ObservableCollection<string> chapters;
+        public string chaptertext = TextBoxChapter.Text;
 
         public Window1()
         {
             InitializeComponent();
+            chapters = new ObservableCollection<string>();
+            ListBox.ItemsSource = chapters;
 
-            //Загрузка документа XML
-            DataContext = this;
-            TheXML = XDocument.Load("D:/уроки/WpfApp1/WpfApp1/Ps/XMLTree.xml");
-            TreeView.DataContext = TheXML;
-            TreeView.UpdateLayout();
         }
 
         private void TemplatesForPlans_Click(object sender, RoutedEventArgs e)
@@ -43,17 +38,21 @@ namespace WpfApp1
 
         private void CreateChapter_Click(object sender, RoutedEventArgs e)
         {
-
+            chapters.Add(chaptertext);
         }
+
+
 
         private void CreateNote_Click(object sender, RoutedEventArgs e)
         {
             CreatingNote creatingNote = new CreatingNote();
             creatingNote.Show();
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
 
+        private void SaveChapter_Click(object sender, RoutedEventArgs e)
+        {
+            string path = "D:/уроки/WpfApp1/WpfApp1/NameChapter/NameChapter.txt";
+            File.WriteAllText(path, chaptertext);
         }
     }
 

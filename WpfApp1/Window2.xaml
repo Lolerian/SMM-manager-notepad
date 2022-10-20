@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Choosing a template" Height="900" Width="1500"
+        Title="Choosing a template" 
+        Height="900" Width="1500"
         WindowState="Maximized"
-        Icon="image\iconka.ico">
+        Icon="image\iconka.ico"
+        ResizeMode="NoResize">
 
     <Grid>
 
