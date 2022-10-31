@@ -10,15 +10,6 @@
         WindowState="Maximized"
         Icon="image\iconka.ico">
 
-    <!--Создание привязки файла XML для Tree View-->
-    <Window.Resources>
-        <HierarchicalDataTemplate ItemsSource="{Binding Path=Elements}" x:Key="NodeTemplate">
-            <Grid>
-                <TextBlock Text="{Binding Path=Name}"/>
-            </Grid>
-        </HierarchicalDataTemplate>
-    </Window.Resources>
-
     <Grid>
 
         <!--Задний фон-->
@@ -133,20 +124,19 @@
                  MaxLength="20">
         </TextBox>
 
+        <!--Лист бокс для отображения разделов-->
         <ListBox Name="ListBox"
                  VerticalAlignment="Top"
                  HorizontalAlignment="Left"
-                 Grid.Row="1" Height="545"
-                 Width="280" Margin="10,80,0,0"></ListBox>
-        
-        <Button x:Name="CreateChapter_Copy" 
-            Click="SaveChapter_Click"
-            Background="WhiteSmoke"
-            VerticalAlignment="Top"
-            Height="20" Width="70"
-            Margin="220,35,0,0"
-            Content="Create chapter" Grid.Row="1" 
-            HorizontalAlignment="Left" FontFamily="Arial Narrow"/>
+                 Grid.Row="1" Height="255"
+                 Width="280" Margin="10,47,0,0"></ListBox>
+
+        <!--Лист бокс для отображения заметок-->
+        <ListBox Name="ListBoxNote"
+                 VerticalAlignment="Top"
+                 HorizontalAlignment="Left"
+                 Grid.Row="1" Height="335"
+                 Width="280" Margin="10,315,0,0"></ListBox>
 
     </Grid>
 </Window>

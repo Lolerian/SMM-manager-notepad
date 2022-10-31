@@ -24,6 +24,8 @@ namespace WpfApp1
         public CreatingNote()
         {
             InitializeComponent();
+
+            ComboBoxForChapter.ItemsSource = File.ReadAllLines("D:/уроки/WpfApp1/WpfApp1/NameChapter/NameChapter.txt");
         }
 
         // сохранение заметки
@@ -36,6 +38,8 @@ namespace WpfApp1
             fStream = new FileStream($"Notes/{NameOfNote}.rtf", FileMode.Create);
             range.Save(fStream, System.Windows.Forms.DataFormats.Rtf);
             fStream.Close();
+
+           // Data.NameOfNoteForListBox = nameofnote.Text;
         }
 
         // печать заметки
@@ -55,6 +59,13 @@ namespace WpfApp1
                 pd.PrintVisual(mainRTB as Visual, "printing as visual");
                 pd.PrintDocument((((IDocumentPaginatorSource)mainRTB.Document).DocumentPaginator), "printing as paginator");
             }
+        }
+
+        // медод обрабатывающий выбор раздела для сохранения заметки
+        private void ComboBoxForChapter_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            string a = ComboBoxForChapter.SelectedItem.ToString();
+            System.Windows.MessageBox.Show(a);
         }
     }
 }

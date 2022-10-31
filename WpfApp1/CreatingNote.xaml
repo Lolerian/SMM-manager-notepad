@@ -17,12 +17,14 @@
                 <Setter Property="FontFamily" Value="Palatino Linotype"></Setter>
                 <Setter Property="Width" Value="30"></Setter>
                 <Setter Property="FontSize" Value ="14"></Setter>
-                <Setter Property="CommandTarget" Value="{Binding ElementName=mainRTB}"></Setter>
+                <Setter Property="CommandTarget"
+                        Value="{Binding ElementName=mainRTB}"></Setter>
             </Style>
 
             <Style TargetType="{x:Type Button}" x:Key="formatImageStyle">
                 <Setter Property="Width" Value="30"></Setter>
-                <Setter Property="CommandTarget" Value="{Binding ElementName=mainRTB}"></Setter>
+                <Setter Property="CommandTarget" 
+                        Value="{Binding ElementName=mainRTB}"></Setter>
             </Style>
         </Grid.Resources>
 
@@ -32,85 +34,102 @@
             <ToolBar Name="mainToolBar" Height="30" DockPanel.Dock="Top">
 
                 <!--Создание элемента для вырезания текста-->
-                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Cut" ToolTip="Cut">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="ApplicationCommands.Cut" ToolTip="Cut">
                     <Image Source="image\ножницы.png"></Image>
                 </Button>
 
                 <!--Создание элемента для копирования текста-->
-                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Copy" ToolTip="Copy">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="ApplicationCommands.Copy" ToolTip="Copy">
                     <Image Source="image\Копир.png"></Image>
                 </Button>
 
                 <!--Создание элемента для вставки текста-->
-                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Paste" ToolTip="Paste">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="ApplicationCommands.Paste" ToolTip="Paste">
                     <Image Source="image\файл.png"></Image>
                 </Button>
 
                 <!--Создание элемента для возвращения назад-->
-                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Undo" ToolTip="Undo">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="ApplicationCommands.Undo" ToolTip="Undo">
                     <Image Source="image\назад.png"></Image>
                 </Button>
 
                 <!--Создание элемента для возвращения вперед-->
-                <Button Style="{StaticResource formatImageStyle}" Command="ApplicationCommands.Redo" ToolTip="Redo">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="ApplicationCommands.Redo" ToolTip="Redo">
                     <Image Source="image\вперед.png"></Image>
                 </Button>
 
                 <!--Создание элемента для жирного шрифта-->
-                <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleBold" ToolTip="Bold">
+                <Button Style="{StaticResource formatTextStyle}"
+                        Command="EditingCommands.ToggleBold" ToolTip="Bold">
                     <TextBlock FontWeight="Bold">B</TextBlock>
                 </Button>
 
                 <!--Создание элемента для наклоненного шрифта-->
-                <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleItalic" ToolTip="Italic">
+                <Button Style="{StaticResource formatTextStyle}"
+                        Command="EditingCommands.ToggleItalic" ToolTip="Italic">
                     <TextBlock FontStyle="Italic" FontWeight="Bold">I</TextBlock>
                 </Button>
 
                 <!--Создание элемента для подчеркнутого шрифта-->
-                <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleUnderline" ToolTip="Underline">
+                <Button Style="{StaticResource formatTextStyle}"
+                        Command="EditingCommands.ToggleUnderline" ToolTip="Underline">
                     <TextBlock TextDecorations="Underline" FontWeight="Bold">U</TextBlock>
                 </Button>
 
                 <!--Создание элемента для изменения размера текста больше/меньше-->
-                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.IncreaseFontSize" ToolTip="Grow Font">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="EditingCommands.IncreaseFontSize" ToolTip="Grow Font">
                     <Image Source="image\больше.png"></Image>
                 </Button>
-                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.DecreaseFontSize" ToolTip="Shrink Font">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="EditingCommands.DecreaseFontSize" ToolTip="Shrink Font">
                     <Image Source="image\меньше.png"></Image>
                 </Button>
 
                 <!--Создание элемента для списка-->
-                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleBullets" ToolTip="Bullets">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="EditingCommands.ToggleBullets" ToolTip="Bullets">
                     <Image Source="image\список.png"></Image>
                 </Button>
 
                 <!--Создание элемента для пронумерованного списка-->
-                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.ToggleNumbering" ToolTip="Numbering">
+                <Button Style="{StaticResource formatImageStyle}" 
+                        Command="EditingCommands.ToggleNumbering" ToolTip="Numbering">
                     <Image Source="image\нумерованный список.png"></Image>
                 </Button>
 
                 <!--Создание элемента для выравнивания по левому краю-->
-                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignLeft" ToolTip="Align Left">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="EditingCommands.AlignLeft" ToolTip="Align Left">
                     <Image Source="image\лево.png"></Image>
                 </Button>
 
                 <!--Создание элемента для выравнивания по ширине-->
-                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignCenter" ToolTip="Align Center">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="EditingCommands.AlignCenter" ToolTip="Align Center">
                     <Image Source="image\по центру.png"></Image>
                 </Button>
 
                 <!--Создание элемента для выравнивания по правому краю-->
-                <Button Style="{StaticResource formatImageStyle}" Command="EditingCommands.AlignRight" ToolTip="Align Right">
+                <Button Style="{StaticResource formatImageStyle}"
+                        Command="EditingCommands.AlignRight" ToolTip="Align Right">
                     <Image Source="image\право.png"></Image>
                 </Button>
 
                 <!--Печать заметки-->
-                <Button Style="{StaticResource formatImageStyle}" ToolTip="Print note" Click="PtintNote_Click">
+                <Button Style="{StaticResource formatImageStyle}"
+                        ToolTip="Print note" Click="PtintNote_Click">
                     <Image Source="image\печать.png"></Image>
                 </Button>
 
                 <!--Сохранение заметки в текстовый файл-->
-                <Button Style="{StaticResource formatImageStyle}" ToolTip="Save note" Click="SaveNote_Click">
+                <Button Style="{StaticResource formatImageStyle}"
+                        ToolTip="Save note" Click="SaveNote_Click">
                     <Image Source="image\сохранение.png"></Image>
                 </Button>
 
@@ -119,15 +138,35 @@
             <!--Создание полосы прокрутки элемента-->
             <ScrollViewer>
                 <!--Создание текстового поля для ввода текста-->
-                <RichTextBox Name="mainRTB" AcceptsTab="True" Height="302" Width="776" SpellCheck.IsEnabled="True" Language="ru-en"></RichTextBox>
+                <RichTextBox Name="mainRTB" AcceptsTab="True"
+                             Height="302" Width="776" 
+                             SpellCheck.IsEnabled="True" 
+                             Language="ru-en"></RichTextBox>
             </ScrollViewer>
-
         </DockPanel>
+
         <!--Создание текстового поля для ввода названия документа-->
-        <TextBox Name="nameofnote" Width="225" Height="31" HorizontalAlignment="Left" Margin="155,0,0,345" VerticalAlignment="Bottom"></TextBox>
-        <Label Content="Enter the name of the note" HorizontalAlignment="Left" Margin="5,39,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="nameofnote" Width="225" Height="21" 
+                 HorizontalAlignment="Left" 
+                 VerticalAlignment="Bottom" Margin="160,0,0,349"/>
+
+        <!--Создание тектового сообщения-->
+        <Label Content="Enter the name of the note" 
+               HorizontalAlignment="Left" Margin="5,39,0,0" 
+               VerticalAlignment="Top" Name="Label1"/>
+        
+        <!--Создание тектового сообщения-->
+        <Label Content="Select a сhapter to save" 
+            HorizontalAlignment="Left" Margin="395,43,0,0" 
+            VerticalAlignment="Top"/>
+
+        <!--Создание поля для выбора раздела-->
+        <ComboBox x:Name="ComboBoxForChapter" Width="226" Height="21" 
+            HorizontalAlignment="Left" Margin="534,42,0,0" 
+            VerticalAlignment="Top" IsReadOnly="False"
+            SelectionChanged="ComboBoxForChapter_Selected"/>
 
     </Grid>
-    
-    
+
+
 </Window>
