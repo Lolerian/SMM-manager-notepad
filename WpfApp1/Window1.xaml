@@ -136,7 +136,13 @@
                  VerticalAlignment="Top"
                  HorizontalAlignment="Left"
                  Grid.Row="1" Height="335"
-                 Width="280" Margin="10,315,0,0"></ListBox>
+                 Width="280" Margin="10,315,0,0"
+                 SelectionChanged="ListBoxNote_SelectionChanged"
+                 ></ListBox>
 
+        <!--Создание текстового поля для вывода выбранной заметки-->
+        <RichTextBox Margin="310,45,30,65" Grid.Row="1"
+                     Name="RTB_ForShowNotes"
+            />
     </Grid>
 </Window>

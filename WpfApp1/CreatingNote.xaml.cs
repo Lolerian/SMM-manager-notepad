@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace WpfApp1
 {
@@ -20,12 +14,17 @@ namespace WpfApp1
     /// Логика взаимодействия для CreatingNote.xaml
     /// </summary>
     public partial class CreatingNote : Window
+
     {
+        Dictionary<string, List<String>> dict = new Dictionary<string, List<String>>();
+        public string a;
+
         public CreatingNote()
         {
             InitializeComponent();
 
-            ComboBoxForChapter.ItemsSource = File.ReadAllLines("D:/уроки/WpfApp1/WpfApp1/NameChapter/NameChapter.txt");
+            ComboBoxForChapter.ItemsSource = 
+                File.ReadAllLines("D:/уроки/WpfApp1/WpfApp1/NameChapter/NameChapter.txt");
         }
 
         // сохранение заметки
@@ -35,11 +34,12 @@ namespace WpfApp1
             TextRange range;
             FileStream fStream;
             range = new TextRange(mainRTB.Document.ContentStart, mainRTB.Document.ContentEnd);
-            fStream = new FileStream($"Notes/{NameOfNote}.rtf", FileMode.Create);
+            fStream = new FileStream($"D:/уроки/WpfApp1/WpfApp1/Notes/{NameOfNote}.rtf", FileMode.Create);
             range.Save(fStream, System.Windows.Forms.DataFormats.Rtf);
-            fStream.Close();
+            fStream.Close(); 
 
-           // Data.NameOfNoteForListBox = nameofnote.Text;
+            // Data.NameOfNoteForListBox = nameofnote.Text;
+
         }
 
         // печать заметки
@@ -55,7 +55,6 @@ namespace WpfApp1
             System.Windows.Controls.PrintDialog pd = new System.Windows.Controls.PrintDialog();
             if ((pd.ShowDialog() == true))
             {
-                //use either one of the below
                 pd.PrintVisual(mainRTB as Visual, "printing as visual");
                 pd.PrintDocument((((IDocumentPaginatorSource)mainRTB.Document).DocumentPaginator), "printing as paginator");
             }
@@ -64,8 +63,7 @@ namespace WpfApp1
         // медод обрабатывающий выбор раздела для сохранения заметки
         private void ComboBoxForChapter_Selected(object sender, SelectionChangedEventArgs e)
         {
-            string a = ComboBoxForChapter.SelectedItem.ToString();
-            System.Windows.MessageBox.Show(a);
+            a = ComboBoxForChapter.SelectedItem.ToString();
         }
     }
 }

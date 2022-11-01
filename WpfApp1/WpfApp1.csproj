@@ -69,6 +69,7 @@
     <Compile Include="ForDay.xaml.cs">
       <DependentUpon>ForDay.xaml</DependentUpon>
     </Compile>
+    <Compile Include="List.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
