@@ -11,39 +11,65 @@
         Height="900" Width="1500">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="66*"/>
+            <ColumnDefinition Width="38*"/>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="435*"/>
+            <RowDefinition Height="195*"/>
+        </Grid.RowDefinitions>
 
         <!--Контейнер под название шаблона-->
         <Rectangle HorizontalAlignment="Center" 
-                   VerticalAlignment="Top"
-                   Height="40" Width="180" Opacity="0.3"
-                   RadiusX="0,15" RadiusY="0,15"
-                   Margin="0,5,0,0">
+                   VerticalAlignment="Center"
+                   Height="25" Width="180" Opacity="0.3"
+                   RadiusX="0,5" RadiusY="0,5" Grid.Column="7" Grid.Row="1">
             <Rectangle.Fill>
                 <LinearGradientBrush>
-                    <GradientStop Color="#C79A97" Offset="0.0"/>
-                    <GradientStop Color="#7CC7BE" Offset="1.1"/>
+                    <GradientStop Color="#FF374BE0" Offset="0.0"/>
+                    <GradientStop Color="#FFACB2DB" Offset="1.1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
 
         <!--Контейнер под названия дней-->
-        <Rectangle HorizontalAlignment="Left" RadiusX="0,15" 
+        <Rectangle HorizontalAlignment="Center" RadiusX="0,15" 
                    RadiusY="0,15" Width="60" 
-                   Opacity="0.5" Margin="30,99,0,200">
+                   Opacity="0.5" Margin="0,6,0,9" Grid.Row="5" Grid.Column="2" Grid.RowSpan="6">
             <Rectangle.Fill>
                 <LinearGradientBrush>
-                    <GradientStop Color="#C79A97" Offset="0.0"/>
-                    <GradientStop Color="#7CC7BE" Offset="1.1"/>
+                    <GradientStop Color="#FF374BE0" Offset="0.0"/>
+                    <GradientStop Color="#5e61c7" Offset="1.1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
 
         <!--Кнопка назад-->
         <Button Name="Back" Content="Back" Height="30"
-                Width="100" HorizontalAlignment="Left" 
-                VerticalAlignment="Top" Margin="10,10,0,0"
-                Background="Black" Foreground="White"
-                FontFamily="Arial Narrow">
+                Width="100"
+                FontFamily="Arial Narrow" Click="Back_Click"
+                Cursor="Hand" Grid.Row="1" Grid.Column="1" 
+                Margin="0,4,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.ColumnSpan="3">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" 
@@ -53,29 +79,27 @@
         </Button>
 
 
-        <TextBox HorizontalAlignment="Left" Height="200"
-                 VerticalAlignment="Center" Width="700"
-                 Margin="50,600,0,0">
-                Enter you text here
+        <TextBox HorizontalAlignment="Left" Height="148"
+                 VerticalAlignment="Top" Width="700"
+                 Margin="25,10,0,0" Grid.Row="11" Grid.Column="2" Grid.ColumnSpan="6">
+            Enter you text here
         </TextBox>
 
         <!--Очитска для RichTextBox-->
-        <Button Name="ClearRichTextBox" Height="25" Width="50"
-                BorderBrush="Transparent" Click="ClearRichTextBox_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Top" 
-                Background="Transparent"
-                Margin="0,87,50,0" Content="Clear" 
-                Foreground="Gray" FontSize="18" 
-                FontFamily="Arial Narrow">
-        </Button>
+        <Button Name="ClearRichTextBox" Height="25" Width="73"
+                 Click="ClearRichTextBox_Click"
+                HorizontalAlignment="Center" VerticalAlignment="Top" 
+                Margin="0,7,0,0" Content="Clear" 
+                FontSize="15" 
+                FontFamily="Arial Narrow" Grid.Row="4" Grid.Column="9"/>
 
         <!--Кнопка сохранение шаблона-->
         <Button Name="Save" Content="Save" Height="30"
-                Width="100" Background="Black"
+                Width="100" 
                 Foreground="White" VerticalAlignment="Top"
-                HorizontalAlignment="Right"
-                Margin="0,10,10,0" FontFamily="Arial Narrow" 
-                Click="Save_Click">
+                HorizontalAlignment="Center"
+                Margin="0,1,0,0" FontFamily="Arial Narrow" 
+                Click="Save_Click" Grid.Row="1" Grid.Column="9">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
@@ -86,23 +110,22 @@
         <!--Верхняя шапка - название шаблона-->
         <Label Content="Planner for the day" 
                HorizontalAlignment="Center" VerticalAlignment="Top"
-               Margin="0,10,0,0" FontSize="18" 
-               FontFamily="Arial Narrow"/>
+               Margin="0,2,0,0" FontSize="18" 
+               FontFamily="Arial Narrow" Grid.Row="1" Grid.Column="7" Height="29" Width="132"/>
 
         <!--Разграничительная линия-->
         <Line X1="10" Y1="50" X2="1550" Y2="50" 
               StrokeThickness="4" Stroke="Black" 
-              StrokeEndLineCap="Square"/>
+              StrokeEndLineCap="Square" Grid.RowSpan="12" Grid.ColumnSpan="11"/>
 
         <!--Обозначение для поля ввода даты + поле-->
         <Label Content="Date:" HorizontalAlignment="Left" 
                VerticalAlignment="Top"
-               Margin="100,60,0,0" FontFamily="Arial Narrow" 
-               FontSize="20"/>
+               Margin="2,1,0,0" FontFamily="Arial Narrow" 
+               FontSize="20" Grid.Row="4" Grid.Column="4" Height="31" Width="47"/>
         <TextBox Height="20" Width="150"  Name="TextBox_Data"
-                 HorizontalAlignment="Left" VerticalAlignment="Top"
-                 Margin="150,67,0,0" MaxLength="8" 
-                 Background="Transparent" BorderBrush="LightGray">
+                 HorizontalAlignment="Center" VerticalAlignment="Center" MaxLength="8" 
+                 Background="Transparent" BorderBrush="LightGray" Grid.Row="4" Grid.Column="5">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -112,13 +135,13 @@
 
         <!--Понедельник + текстовое поле-->
         <Label Content="Mon" FontSize="28" HorizontalAlignment="Left" 
-               VerticalAlignment="Top"
-               Margin="30,109,0,0" FontFamily="Arial Narrow"/>
+               VerticalAlignment="Center"
+               Margin="5,0,0,0" FontFamily="Arial Narrow" Grid.Row="5" Grid.Column="2" Height="40" Width="53" Grid.RowSpan="2"/>
         <TextBox Name="Monday" MaxLength="550" TextWrapping="Wrap"
-                 Height="50" Margin="100,114,0,0"
-                 Width="800" VerticalAlignment="Top" 
+                 Height="50" Margin="5,0,0,0"
+                 Width="800" VerticalAlignment="Center" 
                  HorizontalAlignment="Left" FontFamily="Arial Narrow" 
-                 TextChanged="Monday_TextChanged" >
+                 TextChanged="Monday_TextChanged" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="6" >
             Enter your text here
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -128,13 +151,13 @@
         </TextBox>
 
         <!--Вторник + текстовое поле-->
-        <Label Content="Tue" FontSize="28" HorizontalAlignment="Left"
+        <Label Content="Tue" FontSize="28" HorizontalAlignment="Center"
                VerticalAlignment="Top"
-               Margin="35,177,0,0" FontFamily="Arial Narrow"/>
+               Margin="0,8,0,0" FontFamily="Arial Narrow" Grid.Row="7" Grid.Column="2" Height="40" Width="48" Grid.RowSpan="2"/>
         <TextBox Name="Tuesday" MaxLength="550" TextWrapping="Wrap"
                  Height="50" VerticalAlignment="Top"
-                 Width="800" Margin="100,182,0,0" 
-                 HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="5,3,0,0" 
+                 HorizontalAlignment="Left" FontFamily="Arial Narrow" Grid.Row="8" Grid.Column="3" Grid.ColumnSpan="6">
             Enter your text here
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -146,11 +169,11 @@
         <!--Среда + текстовое поле-->
         <Label Content="Wed" FontSize="28" HorizontalAlignment="Left"
                VerticalAlignment="Top"
-               Margin="30,249,0,0" FontFamily="Arial Narrow"/>
+               Margin="5,10,0,0" FontFamily="Arial Narrow" Grid.Row="9" Grid.Column="2" Height="40" Width="55" Grid.RowSpan="2"/>
         <TextBox Name="Wednsday" MaxLength="550" TextWrapping="Wrap"
                  Height="50" VerticalAlignment="Top"
-                 Width="800" Margin="100,254,0,0" 
-                 HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="5,5,0,0" 
+                 HorizontalAlignment="Left" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="6">
             Enter your text here
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -162,11 +185,11 @@
         <!--Четверг + текстовое поле-->
         <Label Content="Thu" FontSize="28" HorizontalAlignment="Left"
                VerticalAlignment="Top"
-               Margin="34,327,0,0" FontFamily="Arial Narrow"/>
+               Margin="9,78,0,0" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="2" Height="40" Width="48"/>
         <TextBox Name="Thursday" MaxLength="550" TextWrapping="Wrap"
                  Height="50" VerticalAlignment="Top"
-                 Width="800" Margin="100,332,0,0" 
-                 HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="5,83,0,0" 
+                 HorizontalAlignment="Left" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="6">
             Enter your text here
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -178,11 +201,11 @@
         <!--Пятница + текстовое поле-->
         <Label Content="Fri" FontSize="28" HorizontalAlignment="Left"
                VerticalAlignment="Top"
-               Margin="35,402,0,0" FontFamily="Arial Narrow"/>
+               Margin="10,153,0,0" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="2" Height="40" Width="35"/>
         <TextBox Name="Friday" MaxLength="550" TextWrapping="Wrap"
                  Height="50" VerticalAlignment="Top"
-                 Width="800" Margin="100,407,0,0" 
-                 HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="5,158,0,0" 
+                 HorizontalAlignment="Left" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="6">
             Enter your text here
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -194,11 +217,11 @@
         <!--Суббота + текстовое поле-->
         <Label Content="Set" FontSize="28" HorizontalAlignment="Left"
                VerticalAlignment="Top"
-               Margin="35,477,0,0" FontFamily="Arial Narrow"/>
+               Margin="10,228,0,0" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="2" Height="40" Width="42"/>
         <TextBox Name="Saturday" MaxLength="550" TextWrapping="Wrap"
                  Height="50" VerticalAlignment="Top"
-                 Width="800" Margin="100,477,0,0"
-                 HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="5,228,0,0"
+                 HorizontalAlignment="Left" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="6">
             Enter your text here
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -208,13 +231,13 @@
         </TextBox>
 
         <!--Восресенье + текстовое поле-->
-        <Label Content="Sun" FontSize="28" HorizontalAlignment="Left"
+        <Label Content="Sun" FontSize="28" HorizontalAlignment="Center"
                VerticalAlignment="Top"
-               Margin="35,552,0,0" FontFamily="Arial Narrow"/>
+               Margin="0,303,0,0" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="2" Height="40" Width="48"/>
         <TextBox Name="Sunday" MaxLength="550" TextWrapping="Wrap"
                  Height="50" VerticalAlignment="Top"
-                 Width="800" Margin="100,552,0,0" 
-                 HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                 Width="800" Margin="5,303,0,0" 
+                 HorizontalAlignment="Left" FontFamily="Arial Narrow" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="6">
             Enter your text here
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -226,8 +249,8 @@
         <!--Текстовое поле для ввода заметок/градиент-->
         <RichTextBox Height="500" Width="500" 
                      HorizontalAlignment="Right" VerticalAlignment="Top"
-                    Name="RichTextBoxNote" Margin="0,110,50,0" 
-                     FontFamily="Arial Narrow">
+                    Name="RichTextBoxNote" Margin="0,1,40,0" 
+                     FontFamily="Arial Narrow" Grid.Row="6" Grid.Column="8" Grid.ColumnSpan="2" Grid.RowSpan="5">
             <FlowDocument>
                 <Paragraph LineHeight="2"/>
             </FlowDocument>
@@ -245,40 +268,6 @@
                 </Style>
             </RichTextBox.Resources>
         </RichTextBox>
-
-        <!--Имитация линеек тетради на поле заметок-->
-        <Line X1="988" Y1="125" X2="1487" Y2="125" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="140" X2="1487" Y2="140" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="155" X2="1487" Y2="155" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="171" X2="1487" Y2="171" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="187" X2="1487" Y2="187" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="202" X2="1487" Y2="202" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="219" X2="1487" Y2="219" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="234" X2="1487" Y2="234" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="252" X2="1487" Y2="252" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="266" X2="1487" Y2="266" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="281" X2="1487" Y2="281" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="298" X2="1487" Y2="298" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="315" X2="1487" Y2="315" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="330" X2="1487" Y2="330" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="345" X2="1487" Y2="345" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="360" X2="1487" Y2="360" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="376" X2="1487" Y2="376" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="392" X2="1487" Y2="392" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="408" X2="1487" Y2="408" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="424" X2="1487" Y2="424" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="440" X2="1487" Y2="440" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="455" X2="1487" Y2="455" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="471" X2="1487" Y2="471" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="487" X2="1487" Y2="487" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="503" X2="1487" Y2="503" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="519" X2="1487" Y2="519" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="535" X2="1487" Y2="535" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="551" X2="1487" Y2="551" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="567" X2="1487" Y2="567" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="583" X2="1487" Y2="583" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-        <Line X1="988" Y1="599" X2="1487" Y2="599" StrokeThickness="1" Stroke="Black" Opacity="0.3"></Line>
-
 
     </Grid>
 </Window>

@@ -46,5 +46,12 @@ namespace WpfApp1
             graphics.CopyFromScreen(0, 0, 0, 0, printscreen.Size);
             printscreen.Save(@"D:\уроки\printscreen.jpg", ImageFormat.Jpeg);
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            Window2 window2 = new Window2();
+            window2.Show();
+            this.Close();
+        }
     }
 }

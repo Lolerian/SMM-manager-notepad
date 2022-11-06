@@ -18,12 +18,24 @@ namespace WpfApp1
     /// </summary>
     public partial class Window1 : Window
     {
+        // для быстрого отображения создаваемых разделов
         ObservableCollection<string> chapters;
+
+        // для получения названия раздела
         public string chaptertext;
+
+        // получение названия заметки из листа
+        public string SelectedNameOfNote;
+
+        // получение названия раздела из листа
+        public string SelectedNameOfChapter;
+
+        public  FileInfo[] files;
 
         public Window1()
         {
             InitializeComponent();
+
 
             //Путь к файлу (переделать)
             string path = "D:/уроки/WpfApp1/WpfApp1/NameChapter/NameChapter.txt";
@@ -43,16 +55,6 @@ namespace WpfApp1
                     chapters.Add(line);
                 }
             }
-
-            //Открытие всех файлов в указанной папке
-            string pathExample = "D:/уроки/WpfApp1/WpfApp1/Notes";
-            DirectoryInfo dir = new DirectoryInfo(pathExample);
-
-            FileInfo[] files = dir.GetFiles("*.rtf");
-            foreach (FileInfo file in files)
-            {
-                ListBoxNote.Items.Add(file.ToString());
-            }
         }
 
         private void TemplatesForPlans_Click(object sender, RoutedEventArgs e)
@@ -60,6 +62,7 @@ namespace WpfApp1
             //Создание окна
             Window2 window2 = new Window2();
             window2.Show();
+            this.Close();
         }
 
         private void EditNote_Click(object sender, RoutedEventArgs e)
@@ -80,6 +83,19 @@ namespace WpfApp1
             {
                 await stream.WriteLineAsync(chaptertext);
             }
+
+
+            // Создание нового каталога с названием раздела
+            string path_for_create_folder = $"D:/уроки/WpfApp1/WpfApp1/Notes/{chaptertext}";
+
+            try
+            {
+                Directory.CreateDirectory(path_for_create_folder);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(this, ex.Message);
+            }
         }
 
         private void CreateNote_Click(object sender, RoutedEventArgs e)
@@ -87,20 +103,23 @@ namespace WpfApp1
             // Создание формы для заметки
             CreatingNote creatingNote = new CreatingNote();
             creatingNote.Show();
+            this.Close();
         }
 
         private void ListBoxNote_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Получение текста выбранного элемента
-            string SelectedNameOfNote = ((string)ListBoxNote.SelectedItem);
+            SelectedNameOfNote = files[Array.IndexOf(files, ListBoxNote.SelectedItem)].Name;
 
             // Удаление последних 4-х символов из стоки ".rtf"
             int x1 = SelectedNameOfNote.Length - 4;
             SelectedNameOfNote = SelectedNameOfNote.Remove(x1);
 
-            LoadXamlPackage($"D:/уроки/WpfApp1/WpfApp1/Notes/{SelectedNameOfNote}.rtf");
+
+            LoadXamlPackage($"D:/уроки/WpfApp1/WpfApp1/Notes/{SelectedNameOfChapter}/{SelectedNameOfNote}.rtf");
         }
 
+        // Метод загрузкb выбранной заметки в главную форму
         void LoadXamlPackage(string _fileName)
         {
             TextRange range;
@@ -112,6 +131,23 @@ namespace WpfApp1
                 range.Load(fStream, System.Windows.DataFormats.Rtf);
                 fStream.Close();
             }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBoxNote.Items.Clear();
+            SelectedNameOfChapter = ((string)ListBox.SelectedItem);
+
+            //Открытие всех файлов в указанной папке
+            string pathExample = $"D:/уроки/WpfApp1/WpfApp1/Notes/{SelectedNameOfChapter}";
+            DirectoryInfo dir = new DirectoryInfo(pathExample);
+
+            files = dir.GetFiles("*.rtf");
+            foreach (FileInfo file in files)
+            {
+                ListBoxNote.Items.Add(file.Name);
+            }
+
         }
 
         /*private void trw_Products_Expanded(object sender, RoutedEventArgs e)

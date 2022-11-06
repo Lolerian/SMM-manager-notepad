@@ -26,13 +26,16 @@ namespace WpfApp1
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {
-            //возвращение на Window1
+            Window1 win1 = new Window1();
+            win1.Show();
+            this.Close();
         }
 
         private void ForDay_Click(object sender, RoutedEventArgs e)
         {
             ForDay PlanerForDay = new ForDay();
             PlanerForDay.Show();
+            this.Close();
         }
 
         private void ForYear_Click(object sender, RoutedEventArgs e)

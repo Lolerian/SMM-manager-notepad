@@ -25,13 +25,13 @@
                     <Storyboard>
                         <ColorAnimation Storyboard.TargetName="Grad1"
                                         Storyboard.TargetProperty="Color"
-                                        To="#7CC7BE"
-                                        Duration="0:0:2"
+                                        To="#FF626CB3"
+                                        Duration="0:0:1"
                                         AutoReverse="False"/>
                         <ColorAnimation Storyboard.TargetName="Grad2"
                                         Storyboard.TargetProperty="Color"
-                                        To="#C79A97"
-                                        Duration="0:0:2"
+                                        To="#FF262C56"
+                                        Duration="0:0:1"
                                         AutoReverse="False"/>
                     </Storyboard>
                 </BeginStoryboard>
@@ -54,95 +54,111 @@
                         Value="{Binding ElementName=mainRTB}"></Setter>
             </Style>
         </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="44*"/>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="231*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="34*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="270*"/>
+            <RowDefinition Height="376*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="55*"/>
         </Grid.RowDefinitions>
 
         <!--Cоздание контейнера-->
-        <Rectangle Opacity="0.3" Fill="Black" Width="300" 
-                   HorizontalAlignment="Left" Margin="0,34,0,-5" 
-                   Grid.RowSpan="2"
-                   RadiusX="2" RadiusY="2"/>
+        <Rectangle Opacity="0.5" Fill="White" Width="300" 
+                   HorizontalAlignment="Center" Margin="0,0,0,10" 
+                   Grid.RowSpan="6"
+                   RadiusX="2" RadiusY="2" Grid.ColumnSpan="2" Grid.Row="1"/>
 
         <!--Кнопка для создания заметки-->
-        <Button x:Name="CreateNote" Height="50" Width="280" 
-                Click="CreateNote_Click" Margin="10,580,0,0"
-                Background="WhiteSmoke" Content="Create a note" 
-                Grid.Row="1" HorizontalAlignment="Left" FontFamily="Arial Narrow">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="25"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Button x:Name="CreateNote" Width="280" 
+                Click="CreateNote_Click" Margin="0,14,0,9"
+                 Content="Create a note" 
+                Grid.Row="4" HorizontalAlignment="Center" FontFamily="Arial Narrow"
+                IsEnabled="{Binding DataContext.ControlsEnabled, 
+                RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  Style="{StaticResource MaterialDesignRaisedDarkButton}"
+  Grid.ColumnSpan="2" Cursor="Hand"/>
 
         <!--Кнопка для создания раздела-->
         <Button x:Name="CreateChapter" 
                 Click="CreateChapter_Click"
-                Background="WhiteSmoke"
                 VerticalAlignment="Top"
                 Height="20" Width="70"
-                Margin="220,10,0,0"
-                Content="Create chapter" Grid.Row="1" 
-                HorizontalAlignment="Left" FontFamily="Arial Narrow">
+                Margin="0,15,0,0"
+                Content="Create" Grid.Row="1" 
+                HorizontalAlignment="Center" FontFamily="Arial Narrow"
+                IsEnabled="{Binding DataContext.ControlsEnabled, 
+            RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            FontSize="10" Grid.Column="1">
         </Button>
 
         <!--Создание верхней панели инструментов-->
-        <DockPanel Name="mainPanel">
+        <DockPanel Name="mainPanel" Grid.ColumnSpan="5" Margin="0,0,0,40" Grid.RowSpan="2">
 
             <!--Создание кнопок для панени упраления текстом-->
-            <ToolBar Name="mainToolBar" Height="30" DockPanel.Dock="Top">
-
-                <!--Создание элемента -->
-                <Button Style="{StaticResource formatImageStyle}" 
-                        ToolTip="Edit note" Content="Edit note" 
-                        Click="EditNote_Click" FontFamily="Arial Narrow" 
-                        Width="70"></Button>
+            <ToolBar Name="mainToolBar" Height="30" DockPanel.Dock="Top"
+                     Style="{StaticResource MaterialDesignToolBar}"
+                      ClipToBounds="False">
+                <Menu>
+                    <MenuItem Header="Edit" Height="31">
+                        <MenuItem Header="Item 1" />
+                        <MenuItem Header="Item 2" />
+                    </MenuItem>
+                </Menu>
             </ToolBar>
         </DockPanel>
 
         <!--Создание кнопки для перехода к шаблонам-->
-        <Button x:Name="TemplatesForPlans" 
-                Height="50" Width="280" 
+        <Button x:Name="TemplatesForPlans" Width="280" 
                 Click="TemplatesForPlans_Click"
-                Background="WhiteSmoke" Margin="10,690,0,0"
+                 Margin="0,15,0,8"
                 Content="Templates for plans" 
-                Grid.Row="1" HorizontalAlignment="Left" FontFamily="Arial Narrow">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="25"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+                Grid.Row="5" HorizontalAlignment="Center" FontFamily="Arial Narrow"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  Style="{StaticResource MaterialDesignRaisedDarkButton}"
+  ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Grid.ColumnSpan="2" Cursor="Hand"/>
 
         <!--Для ввода названия раздела-->
-        <TextBox VerticalAlignment="Top" Height="20" Width="200" 
-                 Name="TextBoxChapter" HorizontalAlignment="Left" 
-                 Margin="10,10,0,0" Grid.Row="1"
-                 MaxLength="20">
+        <TextBox VerticalAlignment="Top" Height="25" Width="200" 
+                 Name="TextBoxChapter" HorizontalAlignment="Center" 
+                 Margin="0,10,0,0" Grid.Row="1" Grid.Column="0"
+                 MaxLength="20"
+                 >
         </TextBox>
 
         <!--Лист бокс для отображения разделов-->
         <ListBox Name="ListBox"
-                 VerticalAlignment="Top"
-                 HorizontalAlignment="Left"
-                 Grid.Row="1" Height="255"
-                 Width="280" Margin="10,47,0,0"></ListBox>
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                 Height="255"
+                 Width="280"
+                 SelectionChanged="ListBox_SelectionChanged"
+                 IsEnabled="{Binding IsChecked, ElementName=EnableListBox}"
+                 />
 
         <!--Лист бокс для отображения заметок-->
         <ListBox Name="ListBoxNote"
                  VerticalAlignment="Top"
-                 HorizontalAlignment="Left"
-                 Grid.Row="1" Height="335"
-                 Width="280" Margin="10,315,0,0"
-                 SelectionChanged="ListBoxNote_SelectionChanged"
+                 HorizontalAlignment="Center"
+                 Grid.Row="3" Height="335"
+                 Width="280" Margin="0,5,0,0"
+                 SelectionChanged="ListBoxNote_SelectionChanged" Grid.ColumnSpan="2"
                  ></ListBox>
 
         <!--Создание текстового поля для вывода выбранной заметки-->
-        <RichTextBox Margin="310,45,30,65" Grid.Row="1"
-                     Name="RTB_ForShowNotes"
+        <RichTextBox Margin="10,5,0,10" Grid.Row="2"
+                     Name="RTB_ForShowNotes" Background="White" Grid.RowSpan="4" Grid.Column="2" Grid.ColumnSpan="2"
             />
     </Grid>
 </Window>

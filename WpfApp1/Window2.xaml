@@ -12,6 +12,27 @@
         ResizeMode="NoResize">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="34*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="18*"/>
+            <ColumnDefinition Width="35*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="26*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="24*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="308*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="400*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
 
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -25,12 +46,12 @@
                     <Storyboard>
                         <ColorAnimation Storyboard.TargetName="Grad1"
                                         Storyboard.TargetProperty="Color"
-                                        To="#7CC7BE"
+                                        To="#FF464960"
                                         Duration="0:0:2"
                                         AutoReverse="False"/>
                         <ColorAnimation Storyboard.TargetName="Grad2"
                                         Storyboard.TargetProperty="Color"
-                                        To="#C79A97"
+                                        To="#FFACB2DB"
                                         Duration="0:0:2"
                                         AutoReverse="False"/>
                     </Storyboard>
@@ -40,8 +61,7 @@
 
         <!--Кнопка возвращения в главное меню-->
         <Button x:Name="Back" Height="29" Width="118" Click="Back_Click"
-                Background="WhiteSmoke" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top"
-                Margin="5,5,0,0" FontSize="14" FontFamily="Arial Narrow">
+                Content="Back" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" FontFamily="Arial Narrow" Cursor="Hand">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -50,13 +70,13 @@
         </Button>
 
         <!--Контер-->
-        <Rectangle Opacity="0.4" Fill="Black" Height="830" Width="1100" RadiusX="15" RadiusY="15"></Rectangle>
+        <Rectangle Opacity="0.4" Fill="Black" 
+                   RadiusX="15" RadiusY="15" Margin="70,27,10,27" Grid.RowSpan="6" Grid.Column="1" Grid.ColumnSpan="9"/>
 
         <!--Изображение + кнопка для дня-->
-        <Image Source="image/11.png" Width="500" Height="300" HorizontalAlignment="Left" VerticalAlignment="Top"
-             Margin="250,40,0,0"/>
-        <Button x:Name="ForDay" Height="40" Width="150" Click="ForDay_Click" Background="WhiteSmoke" 
-             HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,350,0,0" Content="Choose" FontFamily="Arial Narrow">
+        <Image Source="image/11.png" Height="300" VerticalAlignment="Center"
+             Margin="25,0,10,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"/>
+        <Button x:Name="ForDay" Height="40" Width="150" Click="ForDay_Click"              HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0" Content="Choose" FontFamily="Arial Narrow" Cursor="Hand" Grid.Row="2" Grid.Column="3">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>
@@ -65,10 +85,12 @@
         </Button>
 
         <!--Изображение + кнопка для года-->
-        <Image Source="image/12.png" Width="500" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top"
-               Margin="0,40,250,100"></Image>
-        <Button x:Name="ForYear" Height="40" Width="150" Click="ForYear_Click" Background="WhiteSmoke" HorizontalAlignment="Right"
-                VerticalAlignment="Top" Margin="0,350,400,0" Content="Choose" FontFamily="Arial Narrow">
+        <Image Source="image/12.png" Height="300" VerticalAlignment="Center" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="3" Margin="4,0,4,0"/>
+        <Button x:Name="ForYear" Height="40" Width="150" 
+                Click="ForYear_Click"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" Margin="5,0,0,0" 
+                Content="Choose" FontFamily="Arial Narrow" Grid.Row="2" Grid.Column="7">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>
@@ -77,10 +99,13 @@
         </Button>
 
         <!--Изображение + кнопка для недели-->
-        <Image Source="image/13.png" Width="500" Height="300" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-               Margin="250,0,0,90"></Image>
-        <Button x:Name="ForWeek" Height="40" Width="150" Click="ForWeek_Click" Background="WhiteSmoke" HorizontalAlignment="Left"
-                VerticalAlignment="Bottom" Margin="400,0,0,40" Content="Choose" FontFamily="Arial Narrow">
+        <Image Source="image/13.png" Height="300" VerticalAlignment="Bottom"
+               Margin="25,0,10,3" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3"/>
+        <Button x:Name="ForWeek" Height="40" Width="150" 
+                Click="ForWeek_Click" 
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center" Margin="5,0,0,0" 
+                Content="Choose" FontFamily="Arial Narrow" Grid.Row="4" Grid.Column="3">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>
@@ -89,10 +114,14 @@
         </Button>
 
         <!--Изображение + кнопка для месяца-->
-        <Image Source="image/14.png" Width="500" Height="300" HorizontalAlignment="Right" VerticalAlignment="Bottom"
-               Margin="0,0,250,90"></Image>
-        <Button x:Name="ForMonth" Height="40" Width="150" Click="ForMonth_Click" Background="WhiteSmoke" HorizontalAlignment="Right"
-                VerticalAlignment="Bottom" Margin="0,0,400,40" Content="Choose" FontFamily="Arial Narrow">
+        <Image Source="image/14.png" Width="500" Height="300"
+               HorizontalAlignment="Right" VerticalAlignment="Bottom"
+               Margin="0,0,21,6" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="4"/>
+        <Button x:Name="ForMonth" Height="40" Width="150" 
+                Click="ForMonth_Click" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="Choose" FontFamily="Arial Narrow" Grid.Row="4" Grid.Column="7">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="25"/>

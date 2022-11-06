@@ -17,7 +17,7 @@ namespace WpfApp1
 
     {
         Dictionary<string, List<String>> dict = new Dictionary<string, List<String>>();
-        public string a;
+        public string ComboBoxCelecterChapter;
 
         public CreatingNote()
         {
@@ -34,7 +34,7 @@ namespace WpfApp1
             TextRange range;
             FileStream fStream;
             range = new TextRange(mainRTB.Document.ContentStart, mainRTB.Document.ContentEnd);
-            fStream = new FileStream($"D:/уроки/WpfApp1/WpfApp1/Notes/{NameOfNote}.rtf", FileMode.Create);
+            fStream = new FileStream($"D:/уроки/WpfApp1/WpfApp1/Notes/{ComboBoxCelecterChapter}/{NameOfNote}.rtf", FileMode.Create);
             range.Save(fStream, System.Windows.Forms.DataFormats.Rtf);
             fStream.Close(); 
 
@@ -63,7 +63,14 @@ namespace WpfApp1
         // медод обрабатывающий выбор раздела для сохранения заметки
         private void ComboBoxForChapter_Selected(object sender, SelectionChangedEventArgs e)
         {
-            a = ComboBoxForChapter.SelectedItem.ToString();
+            ComboBoxCelecterChapter = ComboBoxForChapter.SelectedItem.ToString();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 win1 = new Window1();
+            win1.Show();
+            this.Close();
         }
     }
 }

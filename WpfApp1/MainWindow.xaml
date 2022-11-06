@@ -9,20 +9,29 @@
         WindowState="Maximized"
         Icon="image\iconka.ico"
         Height="900" 
-        Width="1500">
+        Width="1500"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}">
 
     <Grid>
         <!--Задний фон-->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#C79A97" Offset="0.0"/>
-                <GradientStop Color="#7CC7BE" Offset="1.1"/>
+                <GradientStop Color="#5e61c7" Offset="0.0"/>
+                <GradientStop Color="#676" Offset="1.1"/>
             </LinearGradientBrush>
         </Grid.Background>
 
         <!--Cоздание контейнера-->
         <Rectangle Opacity="0.3" Fill="Black" Width="400" Height="300" RadiusX="15"
-                   RadiusY="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                   RadiusY="15" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    />
 
         <!--Приветственная надпись-->
         <TextBlock HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" 
@@ -34,24 +43,24 @@
         </TextBlock>
 
         <!--Начальная кнопка-->
-        <Button x:Name="ToBegin" Height="50" Width="150" Click="ToBegin_Click" IsDefault="False"
-                Background="WhiteSmoke" HorizontalAlignment="Center" VerticalAlignment="Center" Content="To Begin">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="25"/>
-                </Style>
-            </Button.Resources>
+        <Button x:Name="ToBegin" Height="50" Click="ToBegin_Click" IsDefault="False"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Content="To Begin" Cursor="Hand"
+                Width="150"
+            IsEnabled="{Binding DataContext.ControlsEnabled, 
+            RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+           Style="{StaticResource MaterialDesignRaisedDarkButton}"
+           ToolTip="click for begin"
+           >
         </Button>
 
         <!--Cправочная кнопка + настройка стиля-->
         <Button x:Name="Reference" Content="Referrence"
                 Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Margin="0,150,0,0" Background="WhiteSmoke" Click="Reference_Click" IsDefault="False">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="25"/>
-                </Style>
-            </Button.Resources>
+                Margin="0,150,0,0" Click="Reference_Click" IsDefault="False"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+  Style="{StaticResource MaterialDesignRaisedDarkButton}"
+  ToolTip="click to open the help">
         </Button>
 
     </Grid>
